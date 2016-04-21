@@ -7,8 +7,10 @@ Remix.create({
 		this.city = $("#city").val()
 		var url = decodeURI(window.location.href);
 		var line = url.split('line=')[1]
-		this.refs.line.val(line)
-		this.search()
+		if(line){    //当url上有跟参数时，页面直接执行查找
+			this.refs.line.val(line)
+			this.search()
+		}
 	},
 	search: function(){
 		var line = this.refs.line.val()
@@ -48,7 +50,7 @@ Remix.create({
 	　　　else result+= String.fromCharCode(index.charCodeAt(i));
 	　　}
 		result = parseInt(result)
-		window.location.href = 'bus_line.html?line='+result
+		window.location.href = 'bus_line.html?line='+result+'&station='+this.refs.line.val()
 	}
 	
 }).bindNode("#main")
