@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="email=no"/>
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0" name="viewport">
+	<title>welcome</title>
+	<link href="css/style.scss" rel="stylesheet" >
+	<script type="text/javascript" src="js/zepto.min.js" ></script>
+</head>
+<body>
+	<nav class="clearfix" >
+		<select class="city-box" id="city" >
+			<option value="福州">福州</option>
+			<option value="厦门">厦门</option>
+			<option value="成都">成都</option>
+			<option value="合肥">合肥</option>
+		</select>
+	</nav>
+	
+	<div id="main">
+		
+	</div>
+	<script src="js/config.js" ></script>
+	<script>
+	$(document).ready(function(){
+		var $city = $("#city");
+
+		$city.change(function(){
+			getContent()
+		})
+
+		getContent()
+
+		function getContent(){
+			var city = $city.val()
+			var content = config[city]
+			var html = "";
+			for(var i=0;i<content.length;i++){
+				html += `<div class="mod">
+							<h3>${content[i].title}</h3>
+							<div class="clearfix">`;
+				for(var j=0;j<content[i].content.length;j++){
+					html += `<a href="${content[i].content[j].href}">
+								<dl>
+									<dd><img src="${content[i].content[j].icon}" /></dd>
+									<dt>${content[i].content[j].title}</dt>
+								</dl>
+							 </a>`
+				}
+				html += `	</div>
+							</div>`
+
+			}
+			$("#main").html(html)
+
+		}
+
+	})
+
+	
+
+	</script>
+</body>
+</html>

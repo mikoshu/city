@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="email=no"/>
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0" name="viewport">
+	<title>公交路线查询</title>
+	<link href="css/style.css" rel="stylesheet" >
+	<script type="text/javascript" src="js/zepto.min.js" ></script>
+	<script type="text/javascript" src="js/Remix.min.js"></script>
+	<script type="text/javascript" src="js/comm.js" ></script>
+</head>
+<body id="main">
+	<nav class="clearfix" >
+		选择城市：
+		<select class="city-box" id="city" >
+			<option value="福州">福州</option>
+			<option value="厦门">厦门</option>
+			<option value="成都">成都</option>
+			<option value="合肥">合肥</option>
+			<option value="杭州">杭州</option>
+		</select>
+	</nav>
+	<div class="bus-search mt-0 bg-fff">
+		<div class="clearfix">
+			<input type="text" ref="line"  >
+			<a href="javascript:;" ref="search" class="btn" >查询</a>
+		</div>
+	</div>
+	<div class="bus-stations bg-fff clearfix">
+		<div class="detail">
+			
+		</div>
+		<ul ref="detail" >
+			
+		</ul>
+	</div>
+	<script src="js/busLine.js"></script>
+</body>
+</html>

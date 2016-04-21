@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="email=no"/>
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0" name="viewport">
+	<title>公交及路线查询</title>
+	<link href="css/style.css" rel="stylesheet" >
+	<script type="text/javascript" src="js/zepto.min.js" ></script>
+	<script type="text/javascript" src="js/comm.js" ></script>
+</head>
+<body class="bg-fff">
+	<nav class="clearfix" >
+		选择城市：
+		<select class="city-box" id="city" >
+			<option value="福州">福州</option>
+			<option value="厦门">厦门</option>
+			<option value="成都">成都</option>
+			<option value="合肥">合肥</option>
+			<option value="杭州">杭州</option>
+		</select>
+	</nav>
+	
+	<div class="bus-search">
+		<h3>公交路线查询</h3>
+		<div class="clearfix">
+			<input type="text" id="line" >
+			<a href="javascript:;" id="check_line"  class="btn">查询</a>
+		</div>
+		<h3>公交站点查询</h3>
+		<div class="clearfix">
+			<input type="text" id="num" >
+			<a href="javascript:;" id="check_num"  class="btn">查询</a>
+		</div>
+		<h3>公交路线换乘</h3>
+		<div class="clearfix">
+			<input type="text" class="small" id="from" >
+			<span>To</span>
+			<input type="text" class="small" id="to" >
+			<a href="javascript:;" id="check_how" class="btn">查询</a>
+		</div>
+	</div>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#check_line").tap(function(){
+				var line = $("#line").val()
+				window.location.href="bus_line.html?line="+line
+			})
+			$("#check_num").tap(function(){
+				var num = $("#num").val()
+				window.location.href="bus_station.html?line="+num
+			})
+			$("#check_how").tap(function(){
+				var froms = $("#from").val()
+				var to = $("#to").val()
+				window.location.href="bus_to.html?from="+froms+"&to="+to
+			})
+		})
+	</script>
+</body>
+</html>
